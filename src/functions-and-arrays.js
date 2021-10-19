@@ -1,13 +1,12 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 function maxOfTwoNumbers(num1, num2) {
   if(num1 > num2) {
-    console.log(num1);
+    return num1;
   } else {
     if(num2 > num1) {
-  console.log(num2);
+  return num2;
     } else {
-      console.log(num1, num2);
+      return num1, num2;
     }
   }
   
@@ -19,57 +18,122 @@ function maxOfTwoNumbers(num1, num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord (words) {
-  var max = words[0].length;
-   words.map(v => max = Math.max(max, v.length));
-   result = words.filter(v => v.length == max);
-   console.log( result);
+function findLongestWord (wordArray) {
+  
+  if(wordArray.length === 0) return null;
+  let result = wordArray[0];
+
+
+  for(let i =0; i < wordArray.length; i++) {
+    
+    
+    if(wordArray[i].length > result.length) {
+      result = wordArray[i];
+    }
+    
+  }
+  return result;
+
   
  }
- findLongestWord(words);
+
 
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-const numbers2 = [5, 7, 3, 6, 9, 1, 9, 6];
 
 let total = 0;
 
  function sumNumbers(array) {
+
+  if(array.length=== 0) return 0;
 for (let i = 0; i < array.length; i++) {
     total += array[i];
 }
-console.log(total);
+ return total;
  }
 sumNumbers(numbers);
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
 
+
+
+// Iteration #3.1 Bonus:
+const mixArray = [6, 7, 9, true, "Hello", false, 15, 200 ]
+function sum(mixedArray) {
+  let count = 0;
+
+  if(mixedArray.length === 0) return null;
+  for(let i = 0; i < mixedArray.length; i++) {
+
+    
+
+    if(typeof mixedArray[i] === "number" ) {
+      count+= mixedArray[i];
+
+    } else if (typeof mixedArray[i] === "boolean" ) {
+      if(mixedArray[i] === true) {
+        count += 1;
+      }
+  
+    if (typeof mixedArray[i]=== "string") {
+      count += mixedArray[i].length
+    }
+
+
+  }
+  return count;
+
+}
+
+}
+
+
+sum(mixArray);
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function findingAverage (arr) {
-  let total = sumNumbers(arr);
-  console.log(total / arr.length);
-  
-  }
-  findingAverage(numbersAvg);
 
-function averageNumbers() {}
+function averageNumbers (arr) {
+  let total1 = sumNumbers(arr);
+
+  return total / arr.length;
+
+  }
+  averageNumbers(numbersAvg);
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) {
+
+  let count = 0;
+
+  for(let i=0; i < wordsArray.length; i++) {
+    count += wordsArray[i].length;
+
+  }
+
+  return count / wordsArray.length;
+  console.log(count)
+
+
+
+
+    
+  }
+ 
 
 // Bonus - Iteration #4.1
 function avg() {}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -86,7 +150,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+  for(let i = 0; i< arr.length; i++) {
+    if (arr[i] === arr[i]) {
+      arr.splice[i]
+    }
+  }
+  return arr
+}
+uniquifyArray(wordsUnique)
 
 
 
